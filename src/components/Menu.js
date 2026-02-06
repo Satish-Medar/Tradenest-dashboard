@@ -30,7 +30,10 @@ const Menu = () => {
     api
       .get("/me")
       .then((res) => {
-        const name = res?.data?.user?.username || "USER";
+        const name =
+          res?.data?.user?.name ||
+          res?.data?.user?.username ||
+          "USER";
         setUsername(name);
       })
       .catch(() => {
