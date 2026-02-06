@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import api from "../api";
 import { toggleTheme } from "../theme";
-import { LANDING_URL } from "../config";
+import { landingPath } from "../config";
 
 const Menu = () => {
   const [selectedMenu, setSelectedMenu] = useState(0);
@@ -22,7 +22,7 @@ const Menu = () => {
     try {
       await api.post("/logout");
     } finally {
-      window.location.href = `${LANDING_URL}/login`;
+      window.location.href = landingPath("/login");
     }
   };
 
@@ -144,7 +144,7 @@ const Menu = () => {
               </button>
               <button
                 className="profile-action"
-                onClick={() => (window.location.href = `${LANDING_URL}/`)}
+                onClick={() => (window.location.href = landingPath("/"))}
               >
                 Back to landing
               </button>

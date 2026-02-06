@@ -11,12 +11,12 @@ import Summary from "./Summary";
 import WatchList from "./WatchList";
 import { GeneralContextProvider } from "./GeneralContext";
 import api from "../api";
-import { LANDING_URL } from "../config";
+import { landingPath } from "../config";
 
 const Dashboard = () => {
   useEffect(() => {
     api.get("/me").catch(() => {
-      window.location.href = `${LANDING_URL}/login`;
+      window.location.href = landingPath("/login");
     });
   }, []);
 
