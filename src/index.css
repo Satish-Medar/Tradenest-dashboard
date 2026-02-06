@@ -5,6 +5,11 @@
   --dash-muted: #9b9b9b;
   --dash-border: #e6e6e6;
   --dash-accent: #f56834;
+  --fs-h1: clamp(1.4rem, 1.1rem + 1.6vw, 2.2rem);
+  --fs-h2: clamp(1.2rem, 1rem + 1vw, 1.6rem);
+  --fs-h3: clamp(1.05rem, 0.95rem + 0.6vw, 1.3rem);
+  --fs-body: clamp(0.9rem, 0.85rem + 0.35vw, 1rem);
+  --fs-small: clamp(0.75rem, 0.7rem + 0.25vw, 0.9rem);
 }
 
 [data-theme="dark"] {
@@ -25,6 +30,37 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: var(--dash-bg);
   color: var(--dash-text);
+  font-size: var(--fs-body);
+}
+
+h1 {
+  font-size: var(--fs-h1);
+}
+
+h2 {
+  font-size: var(--fs-h2);
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--fs-h3);
+}
+
+p,
+li,
+label,
+input,
+button,
+a,
+td,
+th {
+  font-size: var(--fs-body);
+}
+
+small {
+  font-size: var(--fs-small);
 }
 
 code {
@@ -833,6 +869,111 @@ hr {
   border: 1px solid var(--dash-border);
   z-index: 5;
   background: var(--dash-surface);
+}
+
+@media (max-width: 992px) {
+  .dashboard-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .topbar-container {
+    height: auto;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .indices-container {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--dash-border);
+    justify-content: space-between;
+  }
+
+  .menu-container {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .menus ul {
+    padding-left: 0;
+  }
+
+  .watchlist-container {
+    width: 100%;
+    flex-basis: auto;
+    height: auto;
+    max-height: 320px;
+  }
+
+  .watchlist-number {
+    width: 100%;
+    position: static;
+    height: auto;
+    margin-top: 8px;
+  }
+
+  .content {
+    width: 100%;
+    flex-basis: auto;
+    height: auto;
+    padding: 20px 16px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .menus {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .menus li {
+    margin-right: 16px;
+  }
+
+  .profile {
+    margin-left: 0;
+  }
+
+  .data {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .data hr {
+    display: none;
+  }
+
+  .order-table table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 576px) {
+  .topbar-container {
+    box-shadow: none;
+  }
+
+  .indices-container {
+    padding: 8px 12px;
+  }
+
+  .menu-container {
+    padding: 8px 12px;
+  }
+
+  .menus li {
+    margin-right: 12px;
+  }
+
+  .watchlist-container {
+    max-height: 280px;
+  }
 }
 
 .watchlist-number ul {
