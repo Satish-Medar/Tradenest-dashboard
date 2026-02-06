@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import api from "../api";
 import { toggleTheme } from "../theme";
+import { LANDING_URL } from "../config";
 
 const Menu = () => {
   const [selectedMenu, setSelectedMenu] = useState(0);
@@ -21,7 +22,7 @@ const Menu = () => {
     try {
       await api.post("/logout");
     } finally {
-      window.location.href = "http://localhost:3000/login";
+      window.location.href = `${LANDING_URL}/login`;
     }
   };
 
@@ -143,7 +144,7 @@ const Menu = () => {
               </button>
               <button
                 className="profile-action"
-                onClick={() => (window.location.href = "http://localhost:3000/")}
+                onClick={() => (window.location.href = `${LANDING_URL}/`)}
               >
                 Back to landing
               </button>
